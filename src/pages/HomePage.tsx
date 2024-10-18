@@ -5,7 +5,12 @@ import { Gift, ShoppingBag, Star } from 'lucide-react';
 
 const HomePage: React.FC = () => {
   return (
-    <div className="bg-gradient-to-b from-purple-100 to-white">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="bg-gradient-to-b from-purple-100 to-white"
+    >
       <header className="py-20 text-center">
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
@@ -30,7 +35,7 @@ const HomePage: React.FC = () => {
         >
           <Link
             to="/shop"
-            className="bg-purple-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-purple-700 transition-colors"
+            className="bg-purple-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-purple-700 transition-colors inline-block"
           >
             Start Shopping
           </Link>
@@ -65,13 +70,13 @@ const HomePage: React.FC = () => {
           <h2 className="text-3xl font-bold text-purple-800 mb-8">Ready to create your perfect hamper?</h2>
           <Link
             to="/shop"
-            className="bg-purple-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-purple-700 transition-colors"
+            className="bg-purple-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-purple-700 transition-colors inline-block"
           >
             Get Started Now
           </Link>
         </div>
       </section>
-    </div>
+    </motion.div>
   );
 };
 
@@ -81,6 +86,7 @@ const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; description:
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
+      whileHover={{ scale: 1.05 }}
       className="bg-purple-100 p-6 rounded-lg text-center"
     >
       <div className="text-purple-600 mb-4">{icon}</div>
